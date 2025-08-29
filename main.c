@@ -110,8 +110,9 @@ return -1;
 }
 
 int init_gl () {
+  // sometimes segfaults and needs card1 ??
 
-  device = open ("/dev/dri/card1", O_RDWR);
+  device = open ("/dev/dri/card0", O_RDWR);
   resources = drmModeGetResources (device);
   connector = find_connector (resources);
   connector_id = connector->connector_id;
